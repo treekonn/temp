@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mnqr54.data.api.WeatherModelApi
 import com.example.mnqr54.domain.GetWeatherDataUseCase
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -14,9 +15,11 @@ class MainViewModel : ViewModel() {
     val weather: LiveData<State<WeatherModelApi>> = _weather
 
     private val getWeatherDataUseCase = GetWeatherDataUseCase()
+    private var job: Job? = null
 
     fun getWeatherData() {
-        viewModelScope.launch {
+        job?.cancel()
+        job = viewModelScope.launch {
             _weather.value = State.Loading()
             try {
                 _weather.value = State.Data(getWeatherDataUseCase.getWeatherData())

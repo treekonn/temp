@@ -18,10 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initObservers()
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-
+        initObservers()
     }
 
     private fun initObservers() {
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     binding.progressBar.isVisible = false
                     Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
                 }
-                is State.Loading ->  {
+                is State.Loading -> {
                     binding.weatherInfoGroup.isVisible = false
                     binding.progressBar.isVisible = true
                 }

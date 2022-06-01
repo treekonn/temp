@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">mnqr54</string>
+    <string name="bt_refresh">Обновить</string>
+    <string name="tv_name">Минск</string>
+    <string name="tv_temperature">Температура: %s C</string>
+    <string name="tv_feels_like">Ощущается: %s C</string>
+    <string name="tv_description">Облачность: %s</string>
+    <string name="tv_speed">Скорость ветра: %s м/с</string>
+    <string name="tv_pressure">Давление: %s рт.с</string>
+    <string name="tv_humidity">Влажность: %s</string>
+</resources>
